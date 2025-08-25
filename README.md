@@ -1,128 +1,166 @@
-PHP Programming
-1.1. Giới thiệu về PHP
+### 1.1 Giới thiệu PHP 
+- PHP viết tắt của Hypertext Preprocessor.
+- Là ngôn ngữ lập trình kịch bản chạy phía máy chủ (server-side scripting).
+- Được dùng rộng rãi để phát triển web động.
 
-PHP (Hypertext Preprocessor) là ngôn ngữ lập trình mã nguồn mở, chuyên dùng để viết các ứng dụng web động.
+### 1.2 Cú pháp PHP
+Mã PHP được đặt trong cặp thẻ như sau:
+```
+<?php ... ?>
+```
 
-Lịch sử: PHP được tạo ra bởi Rasmus Lerdorf vào năm 1994, ban đầu như một công cụ đơn giản để theo dõi lượt truy cập trên trang cá nhân.
+Khai báo biến
 
-Vì sao chọn PHP?
++ Biến bắt đầu với ký hiệu $, ví dụ: $ten = "phamvhieu";
++ Câu lệnh kết thúc bằng dấu ;
 
-Dễ học, phổ biến và miễn phí.
-
-Chạy được trên hầu hết các hệ điều hành và web server.
-
-Tích hợp tốt với HTML và cơ sở dữ liệu như MySQL.
-
-PHP là ngôn ngữ server-side: Mã PHP được xử lý trên máy chủ, sau đó kết quả (thường là mã HTML) được trả về trình duyệt người dùng.
-
-1.2. Cú pháp PHP cơ bản
-
-Thẻ PHP:
-
-<?php
-    // mã PHP viết ở đây
-?>
+```
+$ten = "phamvhieu";
+```
 
 
-Biến (Variables):
 
-Bắt đầu bằng ký hiệu $.
+Chú thích:
 
-Không cần khai báo kiểu dữ liệu trước.
++ Một dòng: // đây là chú thích
 
-$name = "John";
-$age = 25;
++ Nhiều dòng: /* chú thích nhiều dòng */
+
+  ```
+  //đây là chú thích một dòng
+  /*
+   * đây là chú thích nhiều dòng
+   */
+  
+  ```
+
+### 1.3 Cấu trúc điều khiển
+PHP hỗ trợ đầy đủ các cấu trúc điều khiển như các ngôn ngữ lập trình phổ biến khác:
+
+#### if .. elseif ...else
+
+Câu lệnh điều kiện: 
+
+```
+if ($diem >= 9) {
+        echo "Xuất sắc";
+    } elseif ($diem >= 7) {
+        echo "Khá";
+    } else {
+        echo "Trung bình";
+    }
+```
+#### Loop : For / while /do...while
+
+Câu lệnh lặp: // for 
+```
+for ($i = 1; $i <= 5; $i++) {
+    echo "Số: $i <br>";
+}
+```
+
+// while
+
+```
+
+$i = 1;
+while ($i <= 5) {
+    echo "Số: $i <br>";
+    $i++;
+}
+
+```
+
+//foreach
 
 
-Kiểu dữ liệu phổ biến:
+```
 
-Integer (số nguyên)
 
-Float (số thực)
-
-String (chuỗi)
-
-Array (mảng)
-
-Boolean (true/false)
-
-Toán tử:
-
-Số học: +, -, *, /, %
-
-So sánh: ==, !=, >, <, >=, <=
-
-Logic: &&, ||, !
-
-Cú pháp câu lệnh:
-
-Mỗi câu lệnh PHP phải kết thúc bằng dấu ;.
-
-echo "Hello World!";
-
-1.3. Cấu trúc điều khiển
-
-Câu lệnh điều kiện:
-
-if ($age >= 18) {
-    echo "Bạn đã đủ tuổi.";
-} elseif ($age == 17) {
-    echo "Còn 1 năm nữa.";
-} else {
-    echo "Bạn chưa đủ tuổi.";
+$mang = array("PHP", "HTML", "CSS");
+foreach ($mang as $mon) {
+    echo "Môn học: $mon <br>";
 }
 
 
-Vòng lặp:
+```
 
-for: Lặp với số lần xác định.
 
-while: Lặp khi điều kiện đúng.
+// do...while
+```
 
-foreach: Dùng với mảng.
 
-for ($i = 0; $i < 5; $i++) {
-    echo $i;
+$i = 0;
+do {
+  echo $i;
+  $i++;
+}
+while ($i < 5);
+
+```
+
+//Re nhanh switch..case
+
+
+switch...case: 
+```
+$ngay = "thu hai";
+switch ($ngay)
+{ case "thu hai":
+  echo "Hôm nay là đầu tuần.";
+  break;
+
+  case "thu ba":
+  echo "Hôm nay là thứ 3.";
+  break;
+
+  default: echo "Không rõ ngày.";
 }
 
-1.4. Hàm trong PHP
+```
 
-Định nghĩa hàm:
+### 1.4 Hàm trong PHP
 
-function sayHello($name) {
-    return "Hello, " . $name;
++ Giống Methods trong Class
++ Hàm là khối mã thực hiện một nhiệm vụ cụ thể, tái sử dụng.
+
+Ví dụ: 
+```
+function chao($ten)
+{
+   return "Xin chào, " . $ten;
+
 }
 
+```
 
-Gọi hàm:
+echo chao("Hieu");
 
-echo sayHello("Alice");
+Đặc điểm:
 
++ Có thể có hoặc không tham số.
 
-Truyền tham số và trả về giá trị:
++ Có thể trả về giá trị bằng return.
 
-Có thể truyền nhiều tham số.
+PHP cũng hỗ trợ hàm ẩn danh (anonymous functions) và các hàm callback.
 
-Có thể return kết quả để tái sử dụng.
+### 1.5 Vai trò của PHP trong phát triển ứng dụng Web
+PHP giữ vai trò cốt lõi trong lập trình web phía server, cụ thể:
 
-1.5. Vai trò của PHP trong phát triển web
+Giúp trang web hiển thị nội dung thay đổi theo từng người dùng hoặc dữ liệu từ cơ sở dữ liệu.
 
-Tạo nội dung động: Giao diện và nội dung thay đổi theo thông tin người dùng hoặc dữ liệu trong database.
+Ví dụ: hiển thị tên người dùng sau khi đăng nhập.
 
-Xử lý biểu mẫu:
+Thu thập dữ liệu từ các form đăng nhập, đăng ký, liên hệ.
 
-Nhận và xử lý dữ liệu từ form HTML.
+Kiểm tra và xử lý dữ liệu trước khi lưu hoặc phản hồi lại.
 
-Kiểm tra dữ liệu và phản hồi người dùng.
+Kết nối đến MySQL, PostgreSQL…
 
-Tương tác với cơ sở dữ liệu:
+Thêm, sửa, xóa, tìm kiếm dữ liệu trong bảng.
 
-PHP thường được dùng với MySQL để lưu trữ, truy xuất và xử lý dữ liệu.
+Ví dụ: lưu thông tin tài khoản, sản phẩm, đơn hàng.
 
-Ví dụ: đăng nhập, đăng ký, lưu bài viết, bình luận, v.v.
+Duy trì trạng thái người dùng giữa nhiều trang (ví dụ: vẫn giữ trạng thái đăng nhập khi chuyển trang).
 
-Quản lý phiên (Session) và người dùng:
-
-Ghi nhớ trạng thái đăng nhập.
-
-Bảo vệ các trang chỉ cho người dùng đã đăng nhập truy cập.
+Quản lý giỏ hàng trong thương mại điện tử.
