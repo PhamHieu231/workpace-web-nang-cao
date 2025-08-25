@@ -1,97 +1,128 @@
-1.1 Giới thiệu PHP
-PHP viết tắt của Hypertext Preprocessor.
-Là ngôn ngữ lập trình kịch bản (scripting language) phía máy chủ (server-side).
-Được dùng chủ yếu để tạo và phát triển các ứng dụng web động (dynamic websites).
-1.2 Cú pháp PHP
-Mã PHP được đặt trong cặp thẻ như sau:
+PHP Programming
+1.1. Giới thiệu về PHP
+
+PHP (Hypertext Preprocessor) là ngôn ngữ lập trình mã nguồn mở, chuyên dùng để viết các ứng dụng web động.
+
+Lịch sử: PHP được tạo ra bởi Rasmus Lerdorf vào năm 1994, ban đầu như một công cụ đơn giản để theo dõi lượt truy cập trên trang cá nhân.
+
+Vì sao chọn PHP?
+
+Dễ học, phổ biến và miễn phí.
+
+Chạy được trên hầu hết các hệ điều hành và web server.
+
+Tích hợp tốt với HTML và cơ sở dữ liệu như MySQL.
+
+PHP là ngôn ngữ server-side: Mã PHP được xử lý trên máy chủ, sau đó kết quả (thường là mã HTML) được trả về trình duyệt người dùng.
+
+1.2. Cú pháp PHP cơ bản
+
+Thẻ PHP:
 
 <?php
+    // mã PHP viết ở đây
+?>
 
-Khai báo biến
 
-Biến bắt đầu với ký hiệu $, ví dụ: $ten = "phenikaa";
-Câu lệnh kết thúc bằng dấu ;
-$ten = "Phenikaa";
-Chú thích:
+Biến (Variables):
 
-Một dòng: // đây là chú thích
+Bắt đầu bằng ký hiệu $.
 
-Nhiều dòng: /* chú thích nhiều dòng */
+Không cần khai báo kiểu dữ liệu trước.
 
-//đây là chú thích một dòng
-/*
- * đây là chú thích nhiều dòng
- */
+$name = "John";
+$age = 25;
 
-1.3 Cấu trúc điều khiển
-PHP hỗ trợ đầy đủ các cấu trúc điều khiển như các ngôn ngữ lập trình phổ biến khác:
 
-if .. elseif ...else
+Kiểu dữ liệu phổ biến:
+
+Integer (số nguyên)
+
+Float (số thực)
+
+String (chuỗi)
+
+Array (mảng)
+
+Boolean (true/false)
+
+Toán tử:
+
+Số học: +, -, *, /, %
+
+So sánh: ==, !=, >, <, >=, <=
+
+Logic: &&, ||, !
+
+Cú pháp câu lệnh:
+
+Mỗi câu lệnh PHP phải kết thúc bằng dấu ;.
+
+echo "Hello World!";
+
+1.3. Cấu trúc điều khiển
+
 Câu lệnh điều kiện:
 
-if ($tuoi >= 18)
-  { echo "Đã đủ tuổi."; }
-elseif ($tuoi == 17)
-  { echo "Gần đủ tuổi."; }
-else
-  { echo "Chưa đủ tuổi."; }
-
-Loop : For / while /do...while
-Câu lệnh lặp: // for
-
-for ($i = 0; $i < 5; $i++)
-    { echo $i; }
-
-// while
-
-
-while $i = 0;
-while ($i < 5)
-{
-  echo $i;
-  $i++;
+if ($age >= 18) {
+    echo "Bạn đã đủ tuổi.";
+} elseif ($age == 17) {
+    echo "Còn 1 năm nữa.";
+} else {
+    echo "Bạn chưa đủ tuổi.";
 }
 
-// do...while $i = 0; do { echo $i; $i++; } while ($i < 5);
 
-switch...case: $ngay = "thu hai"; switch ($ngay) { case "thu hai": echo "Hôm nay là đầu tuần."; break; default: echo "Không rõ ngày."; }
+Vòng lặp:
 
-1.4 Hàm trong PHP
-Hàm là khối mã thực hiện một nhiệm vụ cụ thể, có thể tái sử dụng.
+for: Lặp với số lần xác định.
 
-Ví dụ: function chao($ten) { return "Xin chào, " . $ten; }
+while: Lặp khi điều kiện đúng.
 
-echo chao("Minh");
+foreach: Dùng với mảng.
 
-Đặc điểm:
+for ($i = 0; $i < 5; $i++) {
+    echo $i;
+}
 
-Có thể có hoặc không tham số.
+1.4. Hàm trong PHP
 
-Có thể trả về giá trị bằng return.
+Định nghĩa hàm:
 
-PHP cũng hỗ trợ hàm ẩn danh (anonymous functions) và các hàm callback.
+function sayHello($name) {
+    return "Hello, " . $name;
+}
 
-1.5 Vai trò của PHP trong phát triển ứng dụng Web
-PHP giữ vai trò cốt lõi trong lập trình web phía server, cụ thể:
 
-Xử lý dữ liệu từ biểu mẫu (form) người dùng.
+Gọi hàm:
 
-Kết nối và thao tác với cơ sở dữ liệu.
+echo sayHello("Alice");
 
-Tạo nội dung động (dynamic content).
 
-Xử lý xác thực người dùng (login, register).
+Truyền tham số và trả về giá trị:
 
-Tích hợp dễ dàng với HTML, CSS, JavaScript.
+Có thể truyền nhiều tham số.
 
-Tạo API hoặc làm việc với JSON, XML.
+Có thể return kết quả để tái sử dụng.
 
-PHP thường được sử dụng để xây dựng các hệ thống như:
+1.5. Vai trò của PHP trong phát triển web
 
-Website thương mại điện tử
+Tạo nội dung động: Giao diện và nội dung thay đổi theo thông tin người dùng hoặc dữ liệu trong database.
 
-Hệ quản trị nội dung (CMS) như WordPress, Joomla
+Xử lý biểu mẫu:
 
-Diễn đàn (forums), mạng xã hội
+Nhận và xử lý dữ liệu từ form HTML.
 
-Web service, RESTful API
+Kiểm tra dữ liệu và phản hồi người dùng.
+
+Tương tác với cơ sở dữ liệu:
+
+PHP thường được dùng với MySQL để lưu trữ, truy xuất và xử lý dữ liệu.
+
+Ví dụ: đăng nhập, đăng ký, lưu bài viết, bình luận, v.v.
+
+Quản lý phiên (Session) và người dùng:
+
+Ghi nhớ trạng thái đăng nhập.
+
+Bảo vệ các trang chỉ cho người dùng đã đăng nhập truy cập.
